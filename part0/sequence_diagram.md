@@ -9,12 +9,12 @@ sequenceDiagram
     server ->>browser: HTML Document
     deactivate browser
 
-    browser ->>: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    browser ->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
     activate server
     server ->>browser: CSS Document 
     deactivate browser
 
-    browser ->>: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    browser ->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
     activate server
     server ->>browser: JS Document 
     deactivate browser
