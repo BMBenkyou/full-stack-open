@@ -35,8 +35,10 @@ const Content = (props) => {
   }
 
 const Total = (props) => {
+
+  const total = props.exercise_values[0].exercise + props.exercise_values[1].exercise +  props.exercise_values[2].exercise
   return (
-  <p> Number of exercises: {props.total}</p>
+  <p> Number of exercises: {total}</p>
   )
 
 }
@@ -59,7 +61,9 @@ function App() {
   return (
  <div>
   <Header course={course}/>
-  <content content = {content_data}/>
+  <Content content = {content_data}/>
+  <Total exercise_values= {content_data} />
+
 
  </div> 
 )
