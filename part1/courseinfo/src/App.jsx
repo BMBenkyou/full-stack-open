@@ -11,23 +11,35 @@ const Header= (props) => {
     <h1> {props.course}</h1>
   )
   }
-
-// const Content = (props) => {
-//   return (
-//   <>
-//   <p> Part: {props.part} </p>
-//   <p> Exercise: {props.exercise} </p>
-//   </>
-//   )
-//   }
-
-// const Total = (props) => {
-//   return (
+//Bro do not change thissss
+const Part = (props)=> {
+  return (
+  <>
+  <p> Part: {props.part} </p>
+  <p> Exercise: {props.exercise} </p>
+  </>
+  )
+  }
 
 
-//   )
+//The content should not  render anything, instead it will be handled by the Part component
+const Content = (props) => {
+  console.log(props.content)
+  return (
+  <div>
+  <Part part= {props.content[0].part} exercise={props.content[0].exercise} />
+  <Part part= {props.content[1].part} exercise={props.content[1].exercise} />
+  <Part part= {props.content[2].part} exercise={props.content[2].exercise} />
+  </div>
+  )
+  }
 
-// }
+const Total = (props) => {
+  return (
+  <p> Number of exercises: {props.total}</p>
+  )
+
+}
 function App() {
   const course = 'Half stack development with React'
   const part1 = 'Fundamentals of React'
@@ -36,12 +48,19 @@ function App() {
   const exercises2 = 7
   const part3 = 'State of a component'
   const exercises3 = 14
+  const content_data = [
+//directly pass variables and dont wrap them in an object 
+{part: part1, exercise:exercises1},
+{part: part2, exercise:exercises2},
+{part: part3, exercise:exercises3},
+]
 
-  
 
   return (
  <div>
   <Header course={course}/>
+  <content content = {content_data}/>
+
  </div> 
 )
 }
